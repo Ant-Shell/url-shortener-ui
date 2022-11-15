@@ -20,7 +20,7 @@ const  App = () => {
     return (
       <main className="App">
         <header>
-          <h1>URL Shortener</h1>
+          <h1 data-cy="banner">URL Shortener</h1>
           <UrlForm addURL={addURL}/>
         </header>
         {error && <p>An error has occured.</p>}

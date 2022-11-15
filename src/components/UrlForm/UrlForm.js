@@ -22,12 +22,13 @@ const UrlForm = ( {addURL} ) => {
   }
 
     return (
-      <form>
+      <form data-cy="input-form">
         <input
           type='text'
           placeholder='Title...'
           name='title'
           value={title}
+          data-cy="title"
           onChange={e => setTitle(e.target.value)}
         />
 
@@ -36,10 +37,11 @@ const UrlForm = ( {addURL} ) => {
           placeholder='URL to Shorten...'
           name='url'
           value={urlToShorten}
+          data-cy="url"
           onChange={e => seturlToShorten(e.target.value)}
         />
 
-        <button onClick={e => handleSubmit(e)}>
+        <button data-cy="submit-button" onClick={e => handleSubmit(e)}>
           Shorten Please!
         </button>
       </form>

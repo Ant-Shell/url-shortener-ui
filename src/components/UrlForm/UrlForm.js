@@ -3,17 +3,23 @@ import React, { useState} from "react"
 const UrlForm = ( {addURL} ) => {
     const [title, setTitle] = useState('')
     const [urlToShorten, seturlToShorten] = useState('')
+    const [missingvalueMsg, setmissingvalueMsg] = useState('')
 
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    const newURL = {
-      long_url: urlToShorten,
-      title: title
+    if (!title || !urlToShorten) {
+      setmissingvalueMsg('Please enter all values')
+    } else {
+      const newURL = {
+        long_url: urlToShorten,
+        title: title
+      }
+      addURL(newURL)
+      clearInputs();
+      setmissingvalueMsg('')
     }
-    addURL(newURL)
-    clearInputs();
   }
 
   const clearInputs = () => {
@@ -44,6 +50,7 @@ const UrlForm = ( {addURL} ) => {
         <button data-cy="submit-button" onClick={e => handleSubmit(e)}>
           Shorten Please!
         </button>
+        {missingvalueMsg && <p>{missingvalueMsg}</p>}
       </form>
     )
   }

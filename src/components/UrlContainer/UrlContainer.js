@@ -3,7 +3,6 @@ import Card from "../Card/Card"
 import './UrlContainer.css';
 
 const UrlContainer = ({urlList}) => {
-  console.log(urlList)
   const urlEls = urlList.map(url => {
     const {id, title, short_url, long_url } = url
     return (

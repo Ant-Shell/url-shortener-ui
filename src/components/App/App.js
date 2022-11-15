@@ -14,7 +14,7 @@ const  App = () => {
 
   const addURL = (url) => {
     postURL(url)
-    setUrlList([...urlList, url])
+    .then(data => setUrlList([...urlList, data]))
   }
 
     return (

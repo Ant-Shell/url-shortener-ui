@@ -1,14 +1,19 @@
 import React from 'react';
+import Card from "../Card/Card"
 import './UrlContainer.css';
 
-const UrlContainer = props => {
-  const urlEls = props.urls.map(url => {
+const UrlContainer = ({urlList}) => {
+  console.log(urlList)
+  const urlEls = urlList.map(url => {
+    const {id, title, short_url, long_url } = url
     return (
-      <div className="url">
-        <h3>{url.title}</h3>
-        <a href={url.short_url} target="blank">{url.short_url}</a>
-        <p>{url.long_url}</p>
-      </div>
+      <Card 
+        id={id}
+        title={title}
+        short_url={short_url}
+        long_url={long_url}
+        key={id}
+      />
     )
   });
 
